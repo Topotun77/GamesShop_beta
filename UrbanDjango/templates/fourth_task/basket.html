@@ -1,0 +1,38 @@
+{% extends "fourth_task/menu.html" %}
+{% block title %}
+    {{ block.super }} - Корзина
+{% endblock %}
+
+{% block pagename %}
+    Корзина
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    <h2><font color="red">Извините, Ваша корзина пуста.</font>
+        <br>Возможно, Вы плохо жали на кнопки, попробуйте еще раз. Удачи! 🍀
+    </h2>
+<!--    <a href="{{shop}}">-->
+<!--        <h3>Вернуться в магазин</h3>-->
+<!--    </a>-->
+    <table>
+        <tbody>
+            <tr>
+                <th>
+                    <form action="{{shop}}">
+                        <button>
+                            <h3>Вернуться в магазин</h3>
+                        </button>
+                    </form>
+                </th>
+                <td>
+                    <form action="{{back}}">
+                        <button>
+                            <h3>На главную страницу</h3>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

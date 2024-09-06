@@ -1,0 +1,26 @@
+{% extends "fourth_task/menu.html" %}
+{% block title %}
+    {{ block.super }} - Магазин
+{% endblock %}
+
+{% block pagename %}
+    Игры
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    <ul>
+    {% for itm in items %}
+        <li><h3>
+            {{itm}}
+            <button onclick="return confirm('А вам оно надо?');">Купить</button>
+        </h3></li>
+    {% endfor %}
+    </ul>
+    <form action="{{back}}">
+        <button onclick="return confirm('Уверены?');" class="btn btn-outline-primary"
+                type="submit" id="button-addon3" data-mdb-ripple-color="dark">
+            <h3>Вернуться</h3>
+        </button>
+    </form>
+{% endblock %}
