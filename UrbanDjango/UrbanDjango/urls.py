@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from task2.views import class_, func_
 from task4.views import shop, basket
+from task5.views import sign_up_by_django, sign_up_by_html, sign_up_url
 from django.views.generic import TemplateView
 
 
@@ -28,4 +29,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='fourth_task/start_template.html')),
     path('shop/', shop),
     path('basket/', basket),
+    path('django_sign_up/', sign_up_by_django),
+    path('register/', sign_up_by_html),
+    path('reg/', sign_up_url),
 ]
