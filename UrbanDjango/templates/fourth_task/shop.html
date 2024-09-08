@@ -10,16 +10,20 @@
 {% block content %}
     {{ block.super }}
     <ul>
+    <form method="post">
+    {% csrf_token %}
     {% for itm in items %}
         <li><h3>
             {{itm}}
-            <button onclick="return confirm('А вам оно надо?');">Купить</button>
+            <button onclick="return confirm('А вам оно надо?');" type="submit" name="product" value="{{itm}}">
+                Купить
+            </button>
         </h3></li>
     {% endfor %}
+    </form>
     </ul>
     <form action="{{back}}">
-        <button onclick="return confirm('Уверены?');" class="btn btn-outline-primary"
-                type="submit" id="button-addon3" data-mdb-ripple-color="dark">
+        <button onclick="return confirm('Уверены?');">
             <h3>Вернуться</h3>
         </button>
     </form>

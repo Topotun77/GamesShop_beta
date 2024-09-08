@@ -25,7 +25,12 @@
         {% block menu %}
             <h2><a href="/">Главная</a></h2>
             <h2><a href="/shop/">Магазин</a></h2>
-            <h2><a href="/basket/">Корзина</a></h2>
+            <h2>
+                <a href="/basket/">Корзина</a>
+                {% if basket %}
+                ({{basket}})
+                {% endif %}
+            </h2>
             <h2><a href="/register/">Регистрация</a> |
                 <a href="/django_sign_up/">Регистрация через формы</a></h2>
         {% endblock %}

@@ -9,30 +9,23 @@
 
 {% block content %}
     {{ block.super }}
-    <h2><font color="red">Извините, Ваша корзина пуста.</font>
+    {% if basket_ %}
+        <form method="post">
+        {% csrf_token %}
+        {% for key, val in basket_.items %}
+            <h3><label>
+                <input type="checkbox" name="{{ key }}">
+                {{ key }} ({{ val }} шт.)
+            </label></h3>
+        {% endfor %}
+
+            <button onclick="return confirm('Уверены?');" type="submit">
+                <h3>Оплатить покупку</h3>
+            </button>
+        </form>
+    {% else %}
+        <h2><font color="red">Извините, Ваша корзина пуста.</font>
         <br>Возможно, Вы плохо жали на кнопки, попробуйте еще раз. Удачи! 🍀
-    </h2>
-<!--    <a href="{{shop}}">-->
-<!--        <h3>Вернуться в магазин</h3>-->
-<!--    </a>-->
-    <table>
-        <tbody>
-            <tr>
-                <th>
-                    <form action="{{shop}}">
-                        <button>
-                            <h3>Вернуться в магазин</h3>
-                        </button>
-                    </form>
-                </th>
-                <td>
-                    <form action="{{back}}">
-                        <button>
-                            <h3>На главную страницу</h3>
-                        </button>
-                    </form>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        </h2>
+    {% endif %}
 {% endblock %}
